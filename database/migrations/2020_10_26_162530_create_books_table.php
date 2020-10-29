@@ -18,7 +18,7 @@ class CreateBooksTable extends Migration
             $table->foreignId('category_id');
             $table->string('title');
             $table->string('description');
-            $table->date('publish_year');
+            $table->integer('publish_year');
             $table->string('author');
             $table->string('publisher');
             $table->timestamps();
