@@ -14,7 +14,9 @@ class BookCategoryController extends Controller
      */
     public function index()
     {
-        //
+        $bookCategories = BookCategory::all();
+
+        return view('bookCategories.index', compact('bookCategories'));
     }
 
     /**
@@ -24,7 +26,7 @@ class BookCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('bookCategories.create');
     }
 
     /**
@@ -33,9 +35,14 @@ class BookCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BookCategoryRequest $request)
     {
-        //
+        BookCategory::create([
+            'name' => $request['name'],
+        ]);
+
+        return redirect()->route('bookCategories.index')
+            ->with('success', 'Data Book Category berhasil ditambahkan');
     }
 
     /**
@@ -46,7 +53,7 @@ class BookCategoryController extends Controller
      */
     public function show(BookCategory $bookCategory)
     {
-        //
+        return view('bookCategories.show', compact('bookCategory'));
     }
 
     /**
@@ -57,7 +64,7 @@ class BookCategoryController extends Controller
      */
     public function edit(BookCategory $bookCategory)
     {
-        //
+        return view('bookCategories.edit', compact('bookCategory'));
     }
 
     /**
@@ -67,9 +74,13 @@ class BookCategoryController extends Controller
      * @param  \App\Models\BookCategory  $bookCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, BookCategory $bookCategory)
+    public function update(BookCategoryRequest $request, BookCategory $bookCategory)
     {
-        //
+        $bookCategory->name = $request['name'];
+        $bookCategory->save();
+
+        return redirect()->route('bookCategories.index')
+            ->with('success', 'Data Book Category berhasil diubah');
     }
 
     /**
@@ -80,6 +91,9 @@ class BookCategoryController extends Controller
      */
     public function destroy(BookCategory $bookCategory)
     {
-        //
+        $bookCategory->delete();
+
+        return redirect()->route('bookCategories.index')
+            ->with('success', 'Data Book Category berhasil dihapus');/
     }
 }
