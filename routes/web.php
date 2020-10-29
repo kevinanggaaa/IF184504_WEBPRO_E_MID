@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::get('/haris', function () {
-    return view('haris');
+    return view('test');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

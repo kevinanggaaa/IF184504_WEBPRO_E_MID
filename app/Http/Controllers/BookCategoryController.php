@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BookCategory;
-use Illuminate\Http\Request;
+use App\Http\Requests\BookCategoryRequest;
 
 class BookCategoryController extends Controller
 {
@@ -94,6 +94,6 @@ class BookCategoryController extends Controller
         $bookCategory->delete();
 
         return redirect()->route('bookCategories.index')
-            ->with('success', 'Data Book Category berhasil dihapus');/
+            ->with('success', 'Data Book Category berhasil dihapus');
     }
 }
