@@ -19,7 +19,7 @@ class CreateTransactionsTable extends Migration
             $table->foreignId('book_id');
             $table->date('date_issued');
             $table->date('date_due_for_return');
-            $table->date('date_return');
+            $table->date('date_return')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')

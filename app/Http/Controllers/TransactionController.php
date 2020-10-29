@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaction;
-use Illuminate\Http\Request;
+use App\Http\Requests\TransactionRequest;
 
 class TransactionController extends Controller
 {
@@ -14,6 +14,9 @@ class TransactionController extends Controller
      */
     public function index()
     {
+        $transactions = Transaction::all();
+
+        return view('transactions.index', compact('transactions'));
         //
     }
 
@@ -24,7 +27,7 @@ class TransactionController extends Controller
      */
     public function create()
     {
-        //
+        return view('transactions.create');
     }
 
     /**
@@ -33,8 +36,17 @@ class TransactionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TransactionRequest $request)
     {
+        Transaction::create([
+            'user_id' => $request['user_id'],
+            'book_id' => $request['book_id'],
+            'date_issued' => $request['date_issued'],
+            'date_due_for_return' => $request['date_due_for_return'],
+            'date_return' => $request['date_return'],
+        ]);
+
+        return redirect()->route('transactions.index')->with('success', 'Transactions successfully added');
         //
     }
 
@@ -46,7 +58,7 @@ class TransactionController extends Controller
      */
     public function show(Transaction $transaction)
     {
-        //
+        return view('transactions.show', compact('transaction'));
     }
 
     /**
@@ -57,7 +69,7 @@ class TransactionController extends Controller
      */
     public function edit(Transaction $transaction)
     {
-        //
+        return view('transactions.edit', compact('transaction'));
     }
 
     /**
@@ -67,9 +79,17 @@ class TransactionController extends Controller
      * @param  \App\Models\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Transaction $transaction)
+    public function update(TransactionRequest $request, Transaction $transaction)
     {
-        //
+        $transaction->user_id = $request['user_id'];
+        $transaction->book_id = $request['book_id'];
+        $transaction->date_issued = $request['date_issued'];
+        $transaction->date_due_for_return = $request['date_due_for_return'];
+        $transaction->date_return = $request['date_return'];
+        $transaction->save();
+
+        return redirect()->route('transactions.index')
+        ->with('success', 'Transaction successfully updated');
     }
 
     /**
@@ -80,6 +100,9 @@ class TransactionController extends Controller
      */
     public function destroy(Transaction $transaction)
     {
-        //
+        $transaction->delete();
+
+        return redirect()->route('transactions.index')
+            ->with('success', 'Transaction succesfully deleted');
     }
 }
