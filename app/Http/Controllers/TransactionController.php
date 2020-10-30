@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaction;
+use App\Models\Book;
 use App\Http\Requests\TransactionRequest;
 use Illuminate\Support\Facades\Auth;
 
@@ -29,7 +30,9 @@ class TransactionController extends Controller
     public function create()
     {
 
-        return view('transactions.create');
+        $books=Book::all();
+
+        return view('transactions.create', compact('books'));
     }
 
     /**
@@ -73,7 +76,9 @@ class TransactionController extends Controller
      */
     public function edit(Transaction $transaction)
     {
-        return view('transactions.edit', compact('transaction'));
+        $books=Book::all();
+
+        return view('transactions.edit', compact('transaction', 'books'));
     }
 
     /**

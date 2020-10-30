@@ -60,13 +60,14 @@
                                 <input type="text" class="form-control" id="publisher" name="publisher" placeholder="Insert publisher of Book" value="{{ $book->publisher }}" required>
                             </div>
                         </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label for="category_id">Category ID</label>
-                                <input type="text" class="form-control" id="category_id" name="category_id" placeholder="Insert category id of Book" value="{{ $book->category_id }}" required>
-                            </div>
+                        <div class="form-group col-md-6">
+                            <label for="category_id">Book Category</label>
+                            <select id="category_id" name="category_id" class="form-control select2" value="{{ $book->category_id }}" style="width: 100%;">
+                                @foreach ($categories as $category)
+                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
-
                     </div>
 
                     <div class="card-footer">

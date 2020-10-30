@@ -30,11 +30,13 @@
                 @method('PUT')
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label for="book_id">Book ID</label>
-                                <input type="text" class="form-control" id="book_id" name="book_id" placeholder="Insert book id" value="{{ $transaction->book_id }}" required>
-                            </div>
+                        <div class="form-group col-md-6">
+                            <label for="book_id">Book Category</label>
+                            <select id="book_id" name="book_id" class="form-control select2" value="{{ $transaction->book_id }}" style="width: 100%;">
+                                @foreach ($books as $book)
+                                <option value="{{$book->id}}">{{$book->title}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div class="col-sm-12 col-md-6">
                             <div class="form-group">

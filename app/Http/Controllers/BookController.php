@@ -72,7 +72,9 @@ class BookController extends Controller
      */
     public function edit(Book $book)
     {
-        return view('books.edit', compact('book'));
+        $categories = BookCategory::all();
+
+        return view('books.edit', compact('book', 'categories'));
     }
 
     /**
@@ -84,13 +86,13 @@ class BookController extends Controller
      */
     public function update(BookRequest $request, Book $book)
     {
-        $Book->title = $request['title'];
-        $Book->description = $request['description'];
-        $Book->publish_year = $request['publish_year'];
-        $Book->author = $request['author'];
-        $Book->publisher = $request['publisher'];
-        $Book->category_id = $request['category_id'];
-        $Book->save();
+        $book->title = $request['title'];
+        $book->description = $request['description'];
+        $book->publish_year = $request['publish_year'];
+        $book->author = $request['author'];
+        $book->publisher = $request['publisher'];
+        $book->category_id = $request['category_id'];
+        $book->save();
 
         return redirect()->route('books.index')
             ->with('success', 'Book successfully updated');
@@ -104,7 +106,7 @@ class BookController extends Controller
      */
     public function destroy(Book $book)
     {
-        $Book->delete();
+        $book->delete();
 
         return redirect()->route('books.index')
             ->with('success', 'Book succesfully deleted');
