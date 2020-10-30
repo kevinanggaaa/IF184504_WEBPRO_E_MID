@@ -3,42 +3,40 @@
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
         <div class="sidebar-brand-icon rotate-n-15">
-          <i class="fas fa-laugh-wink"></i>
+          <i class="fas fa-book"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">E-Library</div>
       </a>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
-      <!-- Nav Item - Dashboard -->
+      <!-- Nav Item - Books -->
       <li class="nav-item active">
-        <a class="nav-link" href="index.html">
-          <i class="fas fa-fw fa-tachometer-alt"></i>
-          <span>Dashboard</span></a>
+        <a class="nav-link" href="{{route ('books.index')}}">
+          <i class="fas fa-book"></i>
+          <span>Books</span></a>
       </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <!-- Heading -->
-
-      <!-- Nav Item - Pages Collapse Menu -->
-
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-
+      <!-- Nav Item - Books -->
+      <li class="nav-item active">
+        <a class="nav-link" href="{{route ('bookCategories.index')}}">
+          <i class="fas fa-book-open"></i>
+          <span>Book Categories</span></a>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
 
-      <!-- Heading -->
-
-      <!-- Nav Item - Pages Collapse Menu -->
-
-      <!-- Nav Item - Charts -->
-
-      <!-- Nav Item - Tables -->
+      <!-- Nav Item - Books -->
+      <li class="nav-item active">
+        <a class="nav-link" href="{{route ('transactions.index')}}">
+          <i class="fas fa-credit-card"></i>
+          <span>Transaction</span></a>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
