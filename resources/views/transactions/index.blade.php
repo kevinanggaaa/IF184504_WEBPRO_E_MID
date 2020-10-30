@@ -34,7 +34,7 @@
         <table class="table table-hover table-striped">
             <thead>
                 <tr>
-                    <th>User ID</th>
+                    <th>Costumer Name</th>
                     <th>Book ID</th>
                     <th>Date Issued</th>
                     <th style="width: 280px">Action</th>
@@ -43,7 +43,7 @@
             <tbody>
                 @foreach ($transactions as $transaction)
                 <tr>
-                    <td>{{ $transaction->user_id }}</td>
+                    <td>{{ $transaction->user->name }}</td>
                     <td>{{ $transaction->book_id }}</td>
                     <td>{{ $transaction->date_issued }}</td>
                     <td>

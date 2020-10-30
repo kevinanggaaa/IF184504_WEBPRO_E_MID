@@ -31,32 +31,35 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label for="user_id">User ID</label>
-                                <input type="text" class="form-control" id="user_id" name="user_id" placeholder="Insert user id" required>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="form-group">
                                 <label for="book_id">Book ID</label>
                                 <input type="text" class="form-control" id="book_id" name="book_id" placeholder="Insert book id" required>
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 col-md-6">
                             <div class="form-group">
                                 <label for="date_issued">Date Issued</label>
-                                <input type="text" class="form-control" id="date_issued" name="date_issued" placeholder="Insert date issued" required>
+                                <input type="date" name="date_issued" id="date_issued" class="form-control {{$errors->has('date_issued') ? 'is-invalid' : ''}}" value="{{old('date_issued')}}" required>
+                                @error('date_issued')
+                                <span class="error invalid-feedback">{{$message}}</span>
+                                @enderror
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 col-md-6">
                             <div class="form-group">
                                 <label for="date_due_for_return">Date Due For Return</label>
-                                <input type="text" class="form-control" id="date_due_for_return" name="date_due_for_return" placeholder="Insert date due for return" required>
+                                <input type="date" name="date_due_for_return" id="date_due_for_return" class="form-control {{$errors->has('date_due_for_return') ? 'is-invalid' : ''}}" value="{{old('date_due_for_return')}}" required>
+                                @error('date_issued')
+                                <span class="error invalid-feedback">{{$message}}</span>
+                                @enderror
                             </div>
                         </div>
-                        <div class="col-sm-12">
+                        <div class="col-sm-12 col-md-6">
                             <div class="form-group">
                                 <label for="date_return">Date Return</label>
-                                <input type="text" class="form-control" id="date_return" name="date_return" placeholder="Insert date return" >
+                                <input type="date" name="date_return" id="date_return" class="form-control {{$errors->has('date_return') ? 'is-invalid' : ''}}" value="{{old('date_return')}}">
+                                @error('date_issued')
+                                <span class="error invalid-feedback">{{$message}}</span>
+                                @enderror
                             </div>
                         </div>
                     </div>

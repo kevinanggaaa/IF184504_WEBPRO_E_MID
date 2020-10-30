@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Http\Requests\BookRequest;
+use App\Models\BookCategory;
 
 class BookController extends Controller
 {
@@ -26,7 +27,9 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('books.create');
+        $categories = BookCategory::all();
+
+        return view('books.create', compact('categories'));
     }
 
     /**

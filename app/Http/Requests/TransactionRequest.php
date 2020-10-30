@@ -24,7 +24,6 @@ class TransactionRequest extends FormRequest
     public function rules()
     {
         return [
-            'user_id' => 'required',
             'book_id' => 'required',
             'date_issued' => 'required',
             'date_due_for_return' => 'required',

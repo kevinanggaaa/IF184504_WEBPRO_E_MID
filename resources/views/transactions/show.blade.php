@@ -39,8 +39,8 @@
                             <tbody>
 
                                 <tr>
-                                    <td>User ID</td>
-                                    <td>{{ $transaction->user_id }}</td>
+                                    <td>Customer Name</td>
+                                    <td>{{ $transaction->user->name }}</td>
                                 </tr>
                                 <tr>
                                     <td>Book ID</td>

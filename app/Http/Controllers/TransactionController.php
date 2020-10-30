@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Transaction;
 use App\Http\Requests\TransactionRequest;
+use Illuminate\Support\Facades\Auth;
 
 class TransactionController extends Controller
 {
@@ -27,6 +28,7 @@ class TransactionController extends Controller
      */
     public function create()
     {
+
         return view('transactions.create');
     }
 
@@ -38,8 +40,10 @@ class TransactionController extends Controller
      */
     public function store(TransactionRequest $request)
     {
+        $user = Auth::user();
+
         Transaction::create([
-            'user_id' => $request['user_id'],
+            'user_id' => $user->id,
             'book_id' => $request['book_id'],
             'date_issued' => $request['date_issued'],
             'date_due_for_return' => $request['date_due_for_return'],
@@ -81,7 +85,9 @@ class TransactionController extends Controller
      */
     public function update(TransactionRequest $request, Transaction $transaction)
     {
-        $transaction->user_id = $request['user_id'];
+        $user = Auth::user();
+
+        $transaction->user_id = $user->id;
         $transaction->book_id = $request['book_id'];
         $transaction->date_issued = $request['date_issued'];
         $transaction->date_due_for_return = $request['date_due_for_return'];
@@ -89,7 +95,7 @@ class TransactionController extends Controller
         $transaction->save();
 
         return redirect()->route('transactions.index')
-        ->with('success', 'Transaction successfully updated');
+            ->with('success', 'Transaction successfully updated');
     }
 
     /**
