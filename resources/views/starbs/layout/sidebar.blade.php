@@ -36,25 +36,7 @@
         <a class="nav-link" href="{{route ('transactions.index')}}">
           <i class="fas fa-credit-card"></i>
           <span>Transaction</span></a>
-      </li>      
-
-      <!-- Heading -->
-
-      <!-- Nav Item - Pages Collapse Menu -->
-
-
-      <!-- Nav Item - Utilities Collapse Menu -->
-
-
-      <!-- Divider -->
-
-      <!-- Heading -->
-
-      <!-- Nav Item - Pages Collapse Menu -->
-
-      <!-- Nav Item - Charts -->
-
-      <!-- Nav Item - Tables -->
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider d-none d-md-block">
