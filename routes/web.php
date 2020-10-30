@@ -23,7 +23,7 @@ Route::get('/', function () {
 //     return view('dashboard');
 // })->name('dashboard');
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [BookController::class, 'index'] )->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [BookController::class, 'index'])->name('dashboard');
 
 Route::prefix('admin')->group(function () {
     Route::resource('/bookCategories', BookCategoryController::class);
