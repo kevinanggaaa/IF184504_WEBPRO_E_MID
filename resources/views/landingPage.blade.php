@@ -49,22 +49,22 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-        @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
+          @if (Route::has('login'))
+          <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+            @auth
+            <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
+            @else
+            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-                        @endif
-                    @endif
-                </div>
+            @if (Route::has('register'))
+            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
             @endif
+            @endif
+          </div>
+          @endif
         </ul>
       </nav><!-- #nav-menu-container -->
-      
+
     </div>
   </header><!-- End Header -->
 
@@ -72,7 +72,7 @@
   <section id="hero">
     <div class="hero-container" data-aos="zoom-in" data-aos-delay="100">
       <h1>Library</h1>
-      <h2>We are team of talanted designers making websites with Bootstrap</h2>
+      <h2>Library Website for Future Generations</h2>
     </div>
   </section><!-- End Hero Section -->
 
