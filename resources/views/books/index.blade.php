@@ -6,7 +6,7 @@
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
-            <div class="col-sm-6">
+            <div class="col-sm-6 text-xl">
                 <h1>Book</h1>
             </div>
             <div class="col-sm-6">
@@ -19,15 +19,17 @@
     </div><!-- /.container-fluid -->
 </section>
 
-<div class="card">
-    <div class="card-header">
 
+<div class="card">
+    @role('admin')
+    <div class="card-header">
         <div class="card-tools">
             <div class="">
                 <a class="btn btn-success" href="{{ route('books.create') }}">Add Book</a>
             </div>
         </div>
     </div>
+    @endrole
 
     <!-- /.card-header -->
     <div class="card-body p-0">
@@ -51,8 +53,10 @@
                             @csrf
                             @method('DELETE')
                             <a class="btn btn-info" href="{{ route('books.show',$book->id) }}">Show</a>
+                            @role('admin')
                             <a class="btn btn-primary" href="{{ route('books.edit',$book->id) }}">Edit</a>
                             <button type="submit" class="btn btn-danger">Delete</button>
+                            @endrole
                         </form>
                     </td>
                 </tr>

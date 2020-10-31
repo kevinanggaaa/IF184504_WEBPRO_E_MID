@@ -6,7 +6,7 @@
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
-            <div class="col-sm-6">
+            <div class="col-sm-6 text-xl">
                 <h1>Book Category</h1>
             </div>
             <div class="col-sm-6">
@@ -20,14 +20,15 @@
 </section>
 
 <div class="card">
+    @role('admin')
     <div class="card-header">
-
         <div class="card-tools">
             <div class="">
                 <a class="btn btn-success" href="{{ route('bookCategories.create') }}">Add Book Category</a>
             </div>
         </div>
     </div>
+    @endrole
 
     <!-- /.card-header -->
     <div class="card-body p-0">
@@ -35,13 +36,16 @@
             <thead>
                 <tr>
                     <th>Nama</th>
+                    @role('admin')
                     <th style="width: 280px">Action</th>
+                    @endrole
                 </tr>
             </thead>
             <tbody>
                 @foreach ($bookCategories as $bookCategory)
                 <tr>
                     <td>{{ $bookCategory->name }}</td>
+                    @role('admin')
                     <td>
                         <form action="{{ route('bookCategories.destroy', $bookCategory->id) }}" method="POST">
                             @csrf
@@ -50,6 +54,7 @@
                             <button type="submit" class="btn btn-danger">Delete</button>
                         </form>
                     </td>
+                    @endrole
                 </tr>
                 @endforeach
             </tbody>
