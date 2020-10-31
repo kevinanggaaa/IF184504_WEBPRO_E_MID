@@ -44,7 +44,7 @@
     <nav id="nav-menu-container">
       <ul class="nav-menu">
         @if (Route::has('login'))
-        <div class="hidden fixed top-0 right-0 mb-3 ml-5 px-6 py-4 sm:block">
+        <div class="hidden fixed mb-3 ml-5">
           @auth
           <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
           @else
