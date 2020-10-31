@@ -10,7 +10,6 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('/regna/assets/img/favicon.png',true,true)}}" rel="icon">
   <link href="{{ asset('/regna/assets/img/apple-touch-icon.png',true)}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -40,30 +39,25 @@
   <!-- ======= Header ======= -->
   <header id="header" class="header-transparent">
     <div class="container">
+    </div>
 
-      <div id="logo" class="pull-left">
-        <a href="index.html"><img src="{{ asset('/regna/assets/img/logo.png',true)}}" alt=""></a>
-        <!-- Uncomment below if you prefer to use a text logo -->
-        <!--<h1><a href="#hero">Regna</a></h1>-->
-      </div>
+    <nav id="nav-menu-container">
+      <ul class="nav-menu">
+        @if (Route::has('login'))
+        <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+          @auth
+          <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
+          @else
+          <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
 
-      <nav id="nav-menu-container">
-        <ul class="nav-menu">
-          @if (Route::has('login'))
-          <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-            @auth
-            <a href="{{ url('/dashboard') }}" class="text-sm text-gray-700 underline">Dashboard</a>
-            @else
-            <a href="{{ route('login') }}" class="text-sm text-gray-700 underline">Login</a>
-
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
-            @endif
-            @endif
-          </div>
+          @if (Route::has('register'))
+          <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 underline">Register</a>
           @endif
-        </ul>
-      </nav><!-- #nav-menu-container -->
+          @endif
+        </div>
+        @endif
+      </ul>
+    </nav><!-- #nav-menu-container -->
 
     </div>
   </header><!-- End Header -->
