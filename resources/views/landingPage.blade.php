@@ -5,27 +5,27 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Regna Bootstrap Template</title>
+  <title>Library</title>
   <meta content="" name="descriptison">
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="{{ asset('/regna/assets/img/favicon.png')}}" rel="icon">
-  <link href="{{ asset('/regna/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+  <link href="{{ asset('/regna/assets/img/favicon.png',true,true)}}" rel="icon">
+  <link href="{{ asset('/regna/assets/img/apple-touch-icon.png',true)}}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https:/fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Poppins:300,400,500,700" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="{{ asset('/regna/assets/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-  <link href="{{ asset('/regna/assets/vendor/font-awesome/css/font-awesome.min.css')}}" rel="stylesheet">
-  <link href="{{ asset('/regna/assets/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
-  <link href="{{ asset('/regna/assets/vendor/owl.carousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
-  <link href="{{ asset('/regna/assets/vendor/venobox/venobox.css')}}" rel="stylesheet">
-  <link href="{{ asset('/regna/assets/vendor/aos/aos.css')}}" rel="stylesheet">
+  <link href="{{ asset('/regna/assets/vendor/bootstrap/css/bootstrap.min.css',true)}}" rel="stylesheet">
+  <link href="{{ asset('/regna/assets/vendor/font-awesome/css/font-awesome.min.css',true)}}" rel="stylesheet">
+  <link href="{{ asset('/regna/assets/vendor/boxicons/css/boxicons.min.css',true)}}" rel="stylesheet">
+  <link href="{{ asset('/regna/assets/vendor/owl.carousel/assets/owl.carousel.min.css',true)}}" rel="stylesheet">
+  <link href="{{ asset('/regna/assets/vendor/venobox/venobox.css',true)}}" rel="stylesheet">
+  <link href="{{ asset('/regna/assets/vendor/aos/aos.css',true)}}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
-  <link href="{{ asset('/regna/assets/css/style.css')}}" rel="stylesheet">
+  <link href="{{ asset('/regna/assets/css/style.css',true)}}" rel="stylesheet">
 
   <!-- =======================================================
   * Template Name: Regna - v2.1.0
@@ -42,7 +42,7 @@
     <div class="container">
 
       <div id="logo" class="pull-left">
-        <a href="index.html"><img src="{{ asset('/regna/assets/img/logo.png')}}" alt=""></a>
+        <a href="index.html"><img src="{{ asset('/regna/assets/img/logo.png',true)}}" alt=""></a>
         <!-- Uncomment below if you prefer to use a text logo -->
         <!--<h1><a href="#hero">Regna</a></h1>-->
       </div>
@@ -85,21 +85,21 @@
   <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="{{ asset('/regna/assets/vendor/jquery/jquery.min.js')}} "></script>
-  <script src="{{ asset('/regna/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-  <script src="{{ asset('/regna/assets/vendor/jquery.easing/jquery.easing.min.js')}}"></script>
-  <script src="{{ asset('/regna/assets/vendor/php-email-form/validate.js')}}"></script>
-  <script src="{{ asset('/regna/assets/vendor/counterup/counterup.min.js')}}"></script>
-  <script src="{{ asset('/regna/assets/vendor/waypoints/jquery.waypoints.min.js')}}"></script>
-  <script src="{{ asset('/regna/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
-  <script src="{{ asset('/regna/assets/vendor/superfish/superfish.min.js')}}"></script>
-  <script src="{{ asset('/regna/assets/vendor/hoverIntent/hoverIntent.js')}}"></script>
-  <script src="{{ asset('/regna/assets/vendor/owl.carousel/owl.carousel.min.js')}}"></script>
-  <script src="{{ asset('/regna/assets/vendor/venobox/venobox.min.js')}}"></script>
-  <script src="{{ asset('/regna/assets/vendor/aos/aos.js')}}"></script>
+  <script src="{{ asset('/regna/assets/vendor/jquery/jquery.min.js',true)}} "></script>
+  <script src="{{ asset('/regna/assets/vendor/bootstrap/js/bootstrap.bundle.min.js',true)}}"></script>
+  <script src="{{ asset('/regna/assets/vendor/jquery.easing/jquery.easing.min.js',true)}}"></script>
+  <script src="{{ asset('/regna/assets/vendor/php-email-form/validate.js',true)}}"></script>
+  <script src="{{ asset('/regna/assets/vendor/counterup/counterup.min.js',true)}}"></script>
+  <script src="{{ asset('/regna/assets/vendor/waypoints/jquery.waypoints.min.js',true)}}"></script>
+  <script src="{{ asset('/regna/assets/vendor/isotope-layout/isotope.pkgd.min.js',true)}}"></script>
+  <script src="{{ asset('/regna/assets/vendor/superfish/superfish.min.js',true)}}"></script>
+  <script src="{{ asset('/regna/assets/vendor/hoverIntent/hoverIntent.js',true)}}"></script>
+  <script src="{{ asset('/regna/assets/vendor/owl.carousel/owl.carousel.min.js',true)}}"></script>
+  <script src="{{ asset('/regna/assets/vendor/venobox/venobox.min.js',true)}}"></script>
+  <script src="{{ asset('/regna/assets/vendor/aos/aos.js',true)}}"></script>
 
   <!-- Template Main JS File -->
-  <script src="{{ asset('/regna/assets/js/main.js')}}"></script>
+  <script src="{{ asset('/regna/assets/js/main.js',true)}}"></script>
 
 </body>
 

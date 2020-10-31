@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Dashboard</title>
+  <title>Library</title>
 
   <!-- Custom fonts for this template-->
   <link href="{{ asset('/starbs/vendor/fontawesome-free/css/all.min.css')}} " rel="stylesheet" type="text/css">
