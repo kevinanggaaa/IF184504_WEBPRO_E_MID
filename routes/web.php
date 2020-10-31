@@ -28,5 +28,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', [BookControll
 Route::prefix('admin')->group(function () {
     Route::resource('/bookCategories', BookCategoryController::class);
     Route::resource('/books', BookController::class);
+    Route::get('/books/export_excel', [BookController::class, 'export_excel'])->name('books.export_excel');
     Route::resource('/transactions', TransactionController::class);
 });
+

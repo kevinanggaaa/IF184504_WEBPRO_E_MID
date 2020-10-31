@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
+use App\Exports\bookExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Book;
 use App\Http\Requests\BookRequest;
 use App\Models\BookCategory;
@@ -111,4 +114,9 @@ class BookController extends Controller
         return redirect()->route('books.index')
             ->with('success', 'Book succesfully deleted');
     }
+
+    public function export_excel()
+	{
+		return Excel::download(new bookExport, 'book.xlsx');
+	}
 }

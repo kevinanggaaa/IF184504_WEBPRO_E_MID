@@ -25,6 +25,7 @@
         <div class="card-tools">
             <div class="">
                 <a class="btn btn-success" href="{{ route('books.create') }}">Add Book</a>
+                <a href="{{ route('books.export_excel') }}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
             </div>
         </div>
     </div>
