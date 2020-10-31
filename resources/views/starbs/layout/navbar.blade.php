@@ -5,7 +5,9 @@
     <i class="fa fa-bars"></i>
   </button>
 
-  @livewire('navigation-dropdown')
+  <div class="mr-0">
+    @livewire('navigation-dropdown')
+  </div>
 
 
 
