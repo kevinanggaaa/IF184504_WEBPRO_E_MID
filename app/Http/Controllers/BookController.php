@@ -11,6 +11,15 @@ use App\Models\BookCategory;
 
 class BookController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('role:admin')->only('create');
+        $this->middleware('role:admin')->only('store');
+        $this->middleware('role:admin')->only('edit');
+        $this->middleware('role:admin')->only('update');
+        $this->middleware('role:admin')->only('destroy');
+    }
+
     /**
      * Display a listing of the resource.
      *
