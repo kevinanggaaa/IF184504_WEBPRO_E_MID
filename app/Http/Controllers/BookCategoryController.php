@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\bookCategoryExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\BookCategory;
 use App\Http\Requests\BookCategoryRequest;
 
@@ -103,5 +105,11 @@ class BookCategoryController extends Controller
 
         return redirect()->route('bookCategories.index')
             ->with('success', 'Data Book Category berhasil dihapus');
+    }
+
+
+    public function exportExcel()
+    {
+        return Excel::download(new bookCategoryExport, 'bookCategory.xlsx');
     }
 }

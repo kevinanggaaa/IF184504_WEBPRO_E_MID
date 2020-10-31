@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\transactionExport;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Transaction;
 use App\Models\Book;
 use App\Http\Requests\TransactionRequest;
@@ -123,5 +125,10 @@ class TransactionController extends Controller
 
         return redirect()->route('transactions.index')
             ->with('success', 'Transaction succesfully deleted');
+    }
+
+    public function exportExcel()
+    {
+        return Excel::download(new TransactionExport, 'transaction.xlsx');
     }
 }

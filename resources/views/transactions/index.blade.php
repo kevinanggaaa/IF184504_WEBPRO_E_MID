@@ -25,6 +25,7 @@
         <div class="card-tools">
             <div class="">
                 <a class="btn btn-success" href="{{ route('transactions.create') }}">Add Transactions</a>
+                <a href="{{ route('transactions.exportExcel')}}" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
             </div>
         </div>
     </div>

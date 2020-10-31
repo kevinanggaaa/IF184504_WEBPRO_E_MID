@@ -31,3 +31,5 @@ Route::prefix('admin')->group(function () {
     Route::resource('/transactions', TransactionController::class);
 });
 Route::get('/books/exportExcel', [BookController::class, 'exportExcel'])->name('books.exportExcel');
+Route::get('/bookCategories/exportExcel', [BookCategoryController::class, 'exportExcel'])->name('bookCategories.exportExcel');
+Route::get('/transactions/exportExcel', [TransactionController::class, 'exportExcel'])->name('transactions.exportExcel');
