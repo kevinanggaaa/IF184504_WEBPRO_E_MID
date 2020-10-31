@@ -8,6 +8,9 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Book;
 use App\Http\Requests\BookRequest;
 use App\Models\BookCategory;
+use App\Imports\bookImport;
+use Illuminate\Http\Request;
+use Session;
 
 class BookController extends Controller
 {
@@ -127,5 +130,31 @@ class BookController extends Controller
     public function exportExcel()
     {
         return Excel::download(new BookExport, 'book.xlsx');
+    }
+
+    public function importExcel(Request $request)
+    {
+        // validasi
+        $this->validate($request, [
+            'file' => 'required|mimes:csv,xls,xlsx'
+        ]);
+
+        // menangkap file excel
+        $file = $request->file('file');
+
+        // membuat nama file unik
+        $nama_file = rand() . $file->getClientOriginalName();
+
+        // upload ke folder file_transaction di dalam folder public
+        $file->move('file_book', $nama_file);
+
+        // import data
+        Excel::import(new BookImport, public_path('/file_book/' . $nama_file));
+
+        // notifikasi dengan session
+        Session::flash('sukses', 'Book import success!');
+
+        // alihkan halaman kembali
+        return redirect('/admin/books');
     }
 }

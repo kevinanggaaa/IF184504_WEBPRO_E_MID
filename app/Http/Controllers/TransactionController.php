@@ -8,6 +8,9 @@ use App\Models\Transaction;
 use App\Models\Book;
 use App\Http\Requests\TransactionRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Imports\transactionImport;
+use Illuminate\Http\Request;
+use Session;
 
 class TransactionController extends Controller
 {
@@ -130,5 +133,31 @@ class TransactionController extends Controller
     public function exportExcel()
     {
         return Excel::download(new TransactionExport, 'transaction.xlsx');
+    }
+
+    public function importExcel(Request $request)
+    {
+        // validasi
+        $this->validate($request, [
+            'file' => 'required|mimes:csv,xls,xlsx'
+        ]);
+
+        // menangkap file excel
+        $file = $request->file('file');
+
+        // membuat nama file unik
+        $nama_file = rand() . $file->getClientOriginalName();
+
+        // upload ke folder file_transaction di dalam folder public
+        $file->move('file_transaction', $nama_file);
+
+        // import data
+        Excel::import(new TransactionImport, public_path('/file_transaction/' . $nama_file));
+
+        // notifikasi dengan session
+        Session::flash('sukses', 'Transaction import success!');
+
+        // alihkan halaman kembali
+        return redirect('/admin/transactions');
     }
 }

@@ -6,6 +6,9 @@ use App\Exports\bookCategoryExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\BookCategory;
 use App\Http\Requests\BookCategoryRequest;
+use App\Imports\bookCategoryImport;
+use Illuminate\Http\Request;
+use Session;
 
 class BookCategoryController extends Controller
 {
@@ -110,6 +113,32 @@ class BookCategoryController extends Controller
 
     public function exportExcel()
     {
-        return Excel::download(new bookCategoryExport, 'bookCategory.xlsx');
+        return Excel::download(new BookCategoryExport, 'bookCategory.xlsx');
+    }
+
+    public function importExcel(Request $request)
+    {
+        // validasi
+        $this->validate($request, [
+            'file' => 'required|mimes:csv,xls,xlsx'
+        ]);
+
+        // menangkap file excel
+        $file = $request->file('file');
+
+        // membuat nama file unik
+        $nama_file = rand() . $file->getClientOriginalName();
+
+        // upload ke folder file_transaction di dalam folder public
+        $file->move('file_book_category', $nama_file);
+
+        // import data
+        Excel::import(new BookCategoryImport, public_path('/file_book_category/' . $nama_file));
+
+        // notifikasi dengan session
+        Session::flash('sukses', 'Book Category import success!');
+
+        // alihkan halaman kembali
+        return redirect('/admin/bookCategories');
     }
 }

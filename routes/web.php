@@ -33,3 +33,7 @@ Route::prefix('admin')->group(function () {
 Route::get('/books/exportExcel', [BookController::class, 'exportExcel'])->name('books.exportExcel');
 Route::get('/bookCategories/exportExcel', [BookCategoryController::class, 'exportExcel'])->name('bookCategories.exportExcel');
 Route::get('/transactions/exportExcel', [TransactionController::class, 'exportExcel'])->name('transactions.exportExcel');
+
+Route::post('/books/importExcel', [BookController::class, 'importExcel'])->name('books.importExcel');
+Route::post('/bookCategories/importExcel', [BookCategoryController::class, 'importExcel'])->name('bookCategories.importExcel');
+Route::post('/transactions/importExcel', [TransactionController::class, 'importExcel'])->name('transactions.importExcel');

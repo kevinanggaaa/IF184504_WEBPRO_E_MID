@@ -57,8 +57,8 @@
                                     <td>{{ $book->publisher }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Category ID</td>
-                                    <td>{{ $book->category_id }}</td>
+                                    <td>Book Category</td>
+                                    <td>{{ $book->bookCategory->name }}</td>
                                 </tr>
                             </tbody>
                         </table>

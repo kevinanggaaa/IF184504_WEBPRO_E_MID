@@ -43,8 +43,8 @@
                                     <td>{{ $transaction->user->name }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Book ID</td>
-                                    <td>{{ $transaction->book_id }}</td>
+                                    <td>Book Title</td>
+                                    <td>{{ $transaction->book->title }}</td>
                                 </tr>
                                 <tr>
                                     <td>Date Issued</td>
