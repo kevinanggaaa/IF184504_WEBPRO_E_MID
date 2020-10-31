@@ -124,8 +124,8 @@ class BookController extends Controller
             ->with('success', 'Book succesfully deleted');
     }
 
-    public function export_excel()
-	{
-		return Excel::download(new bookExport, 'book.xlsx');
-	}
+    public function exportExcel()
+    {
+        return Excel::download(new BookExport, 'book.xlsx');
+    }
 }

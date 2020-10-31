@@ -2,14 +2,14 @@
 
 namespace App\Exports;
 
-use App\Book;
+use App\Models\Book;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
-class bookExport implements FromCollection
+class BookExport implements FromCollection
 {
     /**
-    * @return \Illuminate\Support\Collection
-    */
+     * @return \Illuminate\Support\Collection
+     */
     public function collection()
     {
         return Book::all();
